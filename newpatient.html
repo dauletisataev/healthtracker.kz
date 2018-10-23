@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="healthtracker">
+  <head>
+    <meta charset="utf-8">
+    <link href="content/css/bootstrap.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+    <script src="app/app.js" > </script>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <link href="content/css/dashboard.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css">
+  </head>
+
+  <body ng-controller="newpatientController">
+
+      <div class="container-fluid">
+        <div class="row">
+
+          <main class="col-sm-12  col-md-12  pt-3" >
+            <div class="container">
+               <div class="accordion" id="searchAccordion">
+                 <div class="accordion-group">
+                   <div class="accordion-heading">
+                     <a class="accordion-toggle" data-toggle="collapse"
+                       data-parent="#searchAccordion" href="#collapseOne">Новый пациент</a>
+                   </div>
+                   <div id="collapseOne" class="accordion-body collapse in" ng-model="patient">
+                     <div class="accordion-inner">
+                       <form class="form-inline">
+                         <div class="row-fluid">
+                           <div class="span4">
+                             <label>Имя</label> <input ng-model="patient.fName" class="input-medium" type="text" />
+                           </div>
+                           <div class="span4">
+                             <label>Фамилия</label> <input ng-model="patient.lName" class="input-medium" type="text" />
+                           </div>
+                           <div class="span4">
+                             <label>Очество</label> <input ng-model="patient.patronymic" class="input-medium typeahead"
+                               id="taRegion" type="text" data-provide="typeahead"
+                               autocomplete="off" />
+                           </div>
+                         </div>
+                         <div class="row-fluid">
+                           <div class="span4">
+                             <label>ИИН</label> <input ng-model="patient.iin" class="input-medium" type="text" />
+                           </div>
+                           <div class="span4">
+                             <label>Телефон</label> <input ng-model="patient.phone" class="input-medium" type="text" />
+                           </div>
+                           <div class="span4">
+                             <select id="input_sex" class="form-control">
+                                <option value="male">Мужчина</option>
+                                <option value="female">Женщина</option>
+                            </select>
+                           </div>
+                         </div>
+                         <div class="row-fluid">
+                           <div class="span3 offset1">
+                             <label class="checkbox"> <input type="checkbox" />Аллергия?
+                             </label>
+                           </div>
+                           <div class="span3">
+                             <label class="checkbox"> <input type="checkbox" />Lorem?
+                             </label>
+                           </div>
+                         </div>
+                       </form>
+                     </div>
+                   </div>
+                 </div>
+                 <div class="accordion-group">
+                   <div class="accordion-heading">
+                     <a class="accordion-toggle" data-toggle="collapse"
+                       data-parent="#searchAccordion" href="#collapseTwo">Добавить курс лечения +</a>
+                   </div>
+                   <div id="collapseTwo" class="accordion-body collapse">
+                     <div class="accordion-inner">
+                       <form class="form-inline">
+                         <div class="row-fluid">
+                           <div class="span4">
+                             <label>что то</label> <input class="input-large" type="text" />
+                           </div>
+                           <div class="span4">
+                             <label>что то</label> <input class="input-large" type="text" />
+                           </div>
+                           <div class="span4">
+                             <label>что то</label> <input class="input-large" type="text" />
+                           </div>
+                           <div class="span4">
+                             <label>что то</label> <input class="input-large" type="text" />
+                           </div>
+                           <div class="span4">
+                             <label>что то</label> <input class="input-large" type="text" />
+                           </div>
+                           <div class="span4">
+                             <label>что то</label> <input class="input-large" type="text" />
+                           </div>
+                         </div>
+
+                       </form>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               <button class="btn btn-success" ng-click="addPatientToDb()" >Сохранить</button>
+             </div>
+          </main>
+        </div>
+      </div>
+
+  </body>
+  </html>
